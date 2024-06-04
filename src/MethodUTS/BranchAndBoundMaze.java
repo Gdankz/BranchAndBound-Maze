@@ -15,14 +15,19 @@ class Node implements Comparable<Node>{
     }
 }
 public class BranchAndBoundMaze{
-    static int ROW = 5;
-    static int COL = 5;
+    static int ROW = 10;
+    static int COL = 10;
     static char[][] grid = {
-            {'S', '1', '0', '1', '1'},
-            {'0', '1', '1', '0', '1'},
-            {'1', '1', '1', '0', '1'},
-            {'1', '0', '0', '0', '1'},
-            {'1', '1', 'E', '1', '1'}
+            {'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'},
+            {'0', '1', '0', '0', '1', '0', '0', '0', '0', '1'},
+            {'1', '1', '0', '1', '1', '1', '1', '1', '0', '1'},
+            {'1', '0', '0', '1', '1', '0', '0', '1', '0', '1'},
+            {'1', '0', '1', '0', '1', '0', 'E', '0', '1', '1'},
+            {'1', '0', '1', '1', '1', '1', '1', '1', '0', '1'},
+            {'1', '0', '0', '0', '1', '0', '0', '0', '0', '1'},
+            {'1', '1', '0', '1', '1', '1', '1', '1', '0', '1'},
+            {'1', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+            {'S', '1', '1', '1', '1', '1', '1', '1', '1', '1'}
     };
 
     static int[] rowMoves = {-1,0,0,1};
@@ -39,7 +44,7 @@ public class BranchAndBoundMaze{
     static int branchAndBound(){
         boolean[][] visited = new boolean[ROW][COL];
         PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(0,0,0));
+        pq.add(new Node(9,0,0));
 
         while (!pq.isEmpty()){
             Node current = pq.poll();
